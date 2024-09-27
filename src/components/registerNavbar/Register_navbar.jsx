@@ -9,7 +9,7 @@ export default function RegisterNavbar() {
   const pathname = usePathname();
   const { session, isLoading } = useSession();
 
-  if (session.isLoggedIn) {
+  if (session?.isLoggedIn) {
     redirect("/dashboard");
   }
 

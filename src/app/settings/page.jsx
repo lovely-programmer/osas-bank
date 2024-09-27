@@ -6,6 +6,7 @@ import Sidebar from "../../components/dashboardComponents/Sidebar";
 import "./settings.css";
 import useSession from "../../lib/use-session";
 import Spinner from "../../components/Spinner/Spinner";
+import { getUser } from "../../lib/requests";
 
 export default function Settings() {
   const { session, isLoading } = useSession();

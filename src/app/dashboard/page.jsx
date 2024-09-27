@@ -35,7 +35,7 @@ export default function Dashboard() {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  const balance = numberWithCommas(user?.balance.toString());
+  const balance = numberWithCommas(user?.balance?.toString());
 
   if (isLoading) {
     return <Spinner />;
