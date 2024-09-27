@@ -8,6 +8,7 @@ export const sessionOptions = {
 };
 
 export const defaultSession = {
+  username: "",
   isLoggedIn: false,
 };
 
