@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AdminSidebar from "../../../components/dashboardComponents/AdminSidebar";
 import { MdOutlineMenu } from "react-icons/md";
 import "../admin.css";
@@ -48,72 +48,70 @@ export default function EditUser() {
   }
 
   return (
-    <Suspense>
-      <div className="dashboard__container">
-        <div className="dashboard__content">
-          <AdminSidebar
-            showSideBar={showSideBar}
-            setShowSideBar={setShowSideBar}
-          />
-          <div className="dashboard__right">
-            <nav className="dashboard__navbar">
-              <h2>WELLS FARGO</h2>
-              <div
-                className="menu__content menu"
-                onClick={() => setShowSideBar(true)}
-              >
-                <MdOutlineMenu />
-              </div>
-            </nav>
-
-            <h2
-              style={{
-                paddingLeft: "20px",
-                paddingTop: "10px",
-                fontWeight: "500",
-              }}
-              className="main__header"
+    <div className="dashboard__container">
+      <div className="dashboard__content">
+        <AdminSidebar
+          showSideBar={showSideBar}
+          setShowSideBar={setShowSideBar}
+        />
+        <div className="dashboard__right">
+          <nav className="dashboard__navbar">
+            <h2>WELLS FARGO</h2>
+            <div
+              className="menu__content menu"
+              onClick={() => setShowSideBar(true)}
             >
-              Edit User
-            </h2>
-
-            <div style={{ paddingLeft: "20px" }}>
-              <form onSubmit={handleSubmit} className="dashboard__form__group">
-                <div className="form__group">
-                  <input
-                    type="text"
-                    value={name}
-                    id="name"
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <label htmlFor="name">Name</label>
-                </div>
-                <div className="form__group">
-                  <input
-                    type="text"
-                    value={username}
-                    id="username"
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                  <label htmlFor="username">Username</label>
-                </div>
-                <div className="form__group">
-                  <input
-                    type="number"
-                    value={balance}
-                    onChange={(e) => setBalance(e.target.value)}
-                    id="accountBalance"
-                  />
-                  <label htmlFor="accountBalance">Account Balance</label>
-                </div>
-                <div className="register__btn">
-                  <button>Update</button>
-                </div>
-              </form>
+              <MdOutlineMenu />
             </div>
+          </nav>
+
+          <h2
+            style={{
+              paddingLeft: "20px",
+              paddingTop: "10px",
+              fontWeight: "500",
+            }}
+            className="main__header"
+          >
+            Edit User
+          </h2>
+
+          <div style={{ paddingLeft: "20px" }}>
+            <form onSubmit={handleSubmit} className="dashboard__form__group">
+              <div className="form__group">
+                <input
+                  type="text"
+                  value={name}
+                  id="name"
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <label htmlFor="name">Name</label>
+              </div>
+              <div className="form__group">
+                <input
+                  type="text"
+                  value={username}
+                  id="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <label htmlFor="username">Username</label>
+              </div>
+              <div className="form__group">
+                <input
+                  type="number"
+                  value={balance}
+                  onChange={(e) => setBalance(e.target.value)}
+                  id="accountBalance"
+                />
+                <label htmlFor="accountBalance">Account Balance</label>
+              </div>
+              <div className="register__btn">
+                <button>Update</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </Suspense>
+    </div>
   );
 }
