@@ -27,9 +27,9 @@ export default function Dashboard() {
 
   const { user, isLoading: fetchingUser } = getUser(session?.username);
 
-  // if (!session?.isLoggedIn) {
-  //   redirect("/");
-  // }
+  if (!session?.isLoggedIn) {
+    redirect("/");
+  }
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -37,7 +37,7 @@ export default function Dashboard() {
 
   const balance = numberWithCommas("" + user?.balance);
 
-  if (isLoading) {
+  if (isLoading || fetchingUser) {
     return <Spinner />;
   }
 

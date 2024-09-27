@@ -22,6 +22,8 @@ export const POST = async (req) => {
 export const GET = async (req) => {
   const session = await getIronSession(cookies(), sessionOptions);
 
+  await sleep(250);
+
   if (!session.isLoggedIn) {
     session.isLoggedIn = defaultSession.isLoggedIn;
   }

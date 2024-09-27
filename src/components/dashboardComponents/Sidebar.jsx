@@ -15,9 +15,9 @@ export default function Sidebar({ showSideBar, setShowSideBar }) {
   const pathname = usePathname();
   const { session } = useSession();
 
-  if (!session?.isLoggedIn) {
-    redirect("/");
-  }
+  // if (!session?.isLoggedIn) {
+  //   redirect("/");
+  // }
 
   return (
     <div

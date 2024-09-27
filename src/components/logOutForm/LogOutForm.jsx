@@ -1,10 +1,13 @@
 import { IoLogOut } from "react-icons/io5";
 import { logout } from "../../app/actions/authActions";
+import { useSWRConfig } from "swr";
 
 export default function LogOutForm() {
+  const { mutate } = useSWRConfig();
   const handleSubmit = (e) => {
     e.preventDefault();
     logout();
+    mutate("/api/session");
   };
 
   return (
