@@ -9,7 +9,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import { useState } from "react";
 import Sidebar from "../../components/dashboardComponents/Sidebar";
 import useSession from "../../lib/use-session";
-// import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import { getUser } from "../../lib/requests";
 import Spinner from "../../components/Spinner/Spinner";
 defaults.maintainAspectRatio = false;
