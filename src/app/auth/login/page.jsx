@@ -21,7 +21,8 @@ export default function Login() {
 
     if (res.ok) {
       const userData = await res.json();
-      authorizeUser(userData);
+      console.log(userData);
+      // authorizeUser(userData);
     } else {
       toast.error("Username or Password incorrect");
     }
