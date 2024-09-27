@@ -5,11 +5,14 @@ import Sidebar from "../../components/dashboardComponents/Sidebar";
 import { MdOutlineMenu } from "react-icons/md";
 import useSession from "../../lib/use-session";
 import { getUser } from "../../lib/requests";
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function Deposit() {
   const [showSideBar, setShowSideBar] = useState(false);
   const { session, isLoading } = useSession();
   const { user } = getUser(session?.username);
+
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="dashboard__container">
