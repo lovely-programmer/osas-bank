@@ -9,10 +9,15 @@ import "../../app/dashboard/dashboard.css";
 import Link from "next/link";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import LogOutForm from "../logOutForm/LogOutForm";
-import { logout } from "../../app/actions/authActions";
+import useSession from "../../lib/use-session";
 
 export default function Sidebar({ showSideBar, setShowSideBar }) {
   const pathname = usePathname();
+  const { session } = useSession();
+
+  if (!session?.isLoggedIn) {
+    redirect("/");
+  }
 
   return (
     <div
@@ -58,12 +63,12 @@ export default function Sidebar({ showSideBar, setShowSideBar }) {
           </li>
         </ul>
 
-        {/* <LogOutForm /> */}
+        <LogOutForm />
 
-        <div onClick={logout} className="dashboard__logout">
+        {/* <form className="dashboard__logout" action={logout}>
           <IoLogOut />
           <p>Log out</p>
-        </div>
+        </form> */}
       </div>
     </div>
   );

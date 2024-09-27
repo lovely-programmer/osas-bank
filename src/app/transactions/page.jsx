@@ -36,9 +36,9 @@ export default function Transactions() {
                 </div>
                 <div className="right__part">
                   <p>Debit</p>
-                  <div className="button_design right__btn">
+                  {/* <div className="button_design right__btn">
                     <button>View Details</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -57,9 +57,9 @@ export default function Transactions() {
                 </div>
                 <div className="right__part">
                   <p>Debit</p>
-                  <div className="button_design right__btn">
+                  {/* <div className="button_design right__btn">
                     <button>View Details</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -78,9 +78,9 @@ export default function Transactions() {
                 </div>
                 <div className="right__part">
                   <p>Debit</p>
-                  <div className="button_design right__btn">
+                  {/* <div className="button_design right__btn">
                     <button>View Details</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

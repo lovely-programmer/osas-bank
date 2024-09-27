@@ -25,7 +25,7 @@ export default function Dashboard() {
 
   const { session, isLoading } = useSession();
 
-  const { user } = getUser(session?.email);
+  const { user, isLoading: fetchingUser } = getUser(session?.email);
 
   if (!session?.isLoggedIn) {
     redirect("/");
@@ -37,7 +37,7 @@ export default function Dashboard() {
 
   const balance = numberWithCommas(String(user?.balance));
 
-  if (isLoading) {
+  if (isLoading || fetchingUser) {
     return <Spinner />;
   }
 
@@ -51,7 +51,7 @@ export default function Dashboard() {
               <span>Current balance</span>
               <div className="balance">
                 <div className="balance__content">
-                  <span>$</span> <span>{balance} </span>
+                  <span>$</span> <span>{balance ? balance : 0} </span>
                 </div>
               </div>
             </div>

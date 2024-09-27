@@ -74,8 +74,12 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  font-size: 16px;
   padding: 10px;
+}
+
+.dashboard__logout button {
+  align-items: center;
+  font-size: 16px;
 }
 
 .dashboard__right {

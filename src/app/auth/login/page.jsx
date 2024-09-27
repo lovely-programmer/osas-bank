@@ -4,6 +4,7 @@ import "../../register/identity/enrollment/register.css";
 // import { useFormState } from "react-dom";
 import { authorizeUser } from "../../actions/authActions";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Login() {
   // const { state, formAction } = useFormState(login, undefined);
@@ -21,6 +22,8 @@ export default function Login() {
     if (res.ok) {
       const userData = await res.json();
       authorizeUser(userData);
+    } else {
+      toast.error("Username or Password incorrect");
     }
   };
 

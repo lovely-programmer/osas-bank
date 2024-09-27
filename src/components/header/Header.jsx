@@ -1,7 +1,30 @@
+"use client";
+import { toast } from "react-toastify";
 import "./Header.css";
 import Link from "next/link";
+import { useState } from "react";
+import { authorizeUser } from "../../app/actions/authActions";
 
 function Header() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("/api/user/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (res.ok) {
+      const userData = await res.json();
+      authorizeUser(userData);
+    } else {
+      toast.error("Username or Password incorrect");
+    }
+  };
+
   return (
     <div className="header">
       <div className="header__container">
@@ -15,13 +38,25 @@ function Header() {
                   {/* <h3>Good Day</h3> */}
                   <h3>Sign in to manage your accounts.</h3>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="form__group">
-                    <input type="text" id="username" required />
+                    <input
+                      type="text"
+                      id="username"
+                      required
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
                     <label htmlFor="username">Username</label>
                   </div>
                   <div className="form__group">
-                    <input type="password" id="password" required />
+                    <input
+                      type="password"
+                      id="password"
+                      required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
                     <label htmlFor="password">Password</label>
                   </div>
 
