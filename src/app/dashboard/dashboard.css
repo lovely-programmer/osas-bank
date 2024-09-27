@@ -1,0 +1,252 @@
+.dashboard__content {
+  position: relative;
+  display: flex;
+  height: 100dvh;
+  background-color: #F4F0ED;
+  padding: 20px;
+}
+
+.dashboard__left__content {
+  flex: 0.3;
+  background-color: #121B28;
+  margin-right: 35px;
+  color: #9BACA9;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.view__dashboard_sidebar {
+  display: block !important;
+}
+
+.dashboard__logo {
+  padding-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.close__menu {
+  display: none;
+  cursor: pointer;
+}
+
+.close__menu svg {
+  font-size: 20px;
+}
+
+.dashboard__items {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 70px);
+  justify-content: space-between;
+}
+
+.dashboard__items ul li {
+  margin-bottom: 30px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dashboard__items ul li a {
+  width: 100%;
+}
+
+.dashboard__items ul li:hover,
+.dashboard__logout:hover {
+  background: white;
+  border-radius: 4px;
+  color: #2E2555;
+  font-weight: 600;
+}
+
+.dashboard__items ul .active {
+  background: white;
+  border-radius: 4px;
+  color: #2E2555;
+  font-weight: 600;
+}
+
+.dashboard__logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.dashboard__right {
+  flex: 1;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.dashboard__right::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboard__right__content {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #2E2555;
+}
+
+.balance__container span {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.balance__container .balance span {
+  display: flex;
+  font-size: 34px;
+  align-items: center;
+  font-weight: bold;
+}
+
+.balance__container .balance span span {
+  font-size: 14px;
+}
+
+.balance__content {
+  display: flex;
+}
+
+.balance__content span:first-child {
+  font-size: 20px;
+}
+
+.dashboard__profile a {
+  display: flex;
+  gap: 5px;
+  height: 50px;
+  align-items: center;
+}
+
+.dashboard__profile a svg {
+  font-size: 40px;
+}
+
+.dashboard__right__main {
+  margin-top: 30px;
+}
+
+.dashboard__chart {
+  background-color: var(--white-color);
+  padding: 10px;
+  width: 100%;
+  height: 300px;
+}
+
+.dashboard__transaction {
+  margin-top: 30px;
+}
+
+.dashboard__transaction__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.dashboard__transaction__header p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dashboard__transaction__header a {
+  font-size: 15px;
+}
+
+.dashboard__profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dashboard__profile .main__menu {
+  display: none;
+}
+
+/* table styles */
+
+table {
+  /* border-collapse: collapse; */
+  /* border: 2px solid rgb(140 140 140); */
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  width: 100%;
+  border: none;
+}
+
+th,
+td {
+  border: 1px solid rgb(160 160 160) !important;
+  padding: 8px 10px;
+  text-align: center;
+  /* font-size: 14px; */
+}
+
+th {
+  background-color: var(--white-color);
+}
+
+tbody>tr:nth-of-type(even) {
+  background-color: rgb(237 238 242);
+}
+
+@media screen and (max-width: 920px) {
+  .dashboard__left__content {
+    display: none;
+
+    position: absolute;
+    z-index: 1;
+    height: calc(100% - 40px);
+    width: 50%;
+  }
+
+  .dashboard__profile .main__menu {
+    display: flex;
+  }
+
+  .dashboard__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .close__menu {
+    display: flex;
+  }
+
+  .dashboard__profile .main__menu .menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .dashboard__profile .main__menu .menu svg {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .dashboard__logo h2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .balance__container .balance span {
+    font-size: 25px;
+  }
+
+  .dashboard__left__content {
+    width: 95%;
+  }
+}

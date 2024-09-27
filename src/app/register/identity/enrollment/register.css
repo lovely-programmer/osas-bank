@@ -1,0 +1,142 @@
+/* .register__container {} */
+
+.register__content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: transparent;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.register {
+  border-radius: 12px;
+  box-shadow: 0 0 16px 0 rgba(59, 51, 49, .15);
+  margin: 64px auto 54px;
+  max-width: 870px;
+  width: 83%;
+}
+
+.register__bottom {
+  text-align: left;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.register__bottom ul {
+  list-style: square;
+  margin: 15px 20px 0;
+  font-size: 16px;
+}
+
+.register__bottom ul li {
+  margin-bottom: 10px;
+}
+
+/* .register__main {
+  max-width: 870px;
+  width: 83%;
+  z-index: 0;
+} */
+
+.register__details {
+  box-shadow: 0 0 16px 0 rgba(59, 51, 49, .15);
+  border-radius: 12px;
+  padding: 32px 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 15px;
+}
+
+.register__details h1 {
+  color: #d20826;
+  display: block;
+  font-size: 2.1875rem;
+  line-height: 44px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.register__details span {
+  text-align: center;
+  color: #3b3331;
+  display: block;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.register__form {
+  margin: 0 auto;
+  width: 560px;
+}
+
+.register__form form .form__group input {
+  font-size: 16px;
+}
+
+.create__account-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.register__btn button {
+  min-width: 232px !important;
+}
+
+.register__footer {
+  padding: 32px 24px 24px;
+  font-size: 15px;
+  line-height: 1rem;
+  background-color: #F4F0ED;
+}
+
+.register__footerfirst {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.register__footerfirst div {
+  border-left: 1px solid #141414;
+  height: 16px;
+  list-style: none;
+  margin: 0 16px 16px -3px;
+  padding: 0 0 0 16px;
+}
+
+.register__footersecond {
+  padding-left: 12px;
+  line-height: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .register__content {
+    background-image: none;
+  }
+
+  .register__form {
+    width: 100%;
+  }
+
+  .register__details h1 {
+    font-size: 2rem;
+  }
+
+  .register__details span {
+    font-size: 16px;
+  }
+
+  .register__btn {
+    width: 100%;
+  }
+
+  .register__btn button {
+    min-width: unset !important;
+  }
+}

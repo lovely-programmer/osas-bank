@@ -1,0 +1,47 @@
+[
+  {
+    "label": "Jan",
+    "income": "4000",
+    "expenses": "2835"
+  },
+  {
+    "label": "feb",
+    "income": "5000",
+    "expenses": "3000"
+  },
+  {
+    "label": "Mar",
+    "income": "3000",
+    "expenses": "5000"
+  },
+  {
+    "label": "Apr",
+    "income": "8000",
+    "expenses": "4000"
+  },
+  {
+    "label": "May",
+    "income": "10000",
+    "expenses": "3500"
+  },
+  {
+    "label": "Jun",
+    "income": "20000",
+    "expenses": "5000"
+  },
+  {
+    "label": "Jul",
+    "income": "5000",
+    "expenses": "4000"
+  },
+  {
+    "label": "Aug",
+    "income": "3000",
+    "expenses": "6000"
+  },
+  {
+    "label": "Sep",
+    "income": "23850",
+    "expenses": "10000"
+  }
+]

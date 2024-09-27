@@ -1,0 +1,10 @@
+.delete__user svg {
+  font-size: 20px;
+  cursor: pointer;
+  fill: #D54A61;
+}
+
+.edit__user a svg {
+  font-size: 20px;
+  fill: #396DC4;
+}

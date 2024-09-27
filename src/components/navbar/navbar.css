@@ -1,0 +1,127 @@
+.navbar {
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  border-bottom: 4px solid #ffcd41;
+}
+
+.navbar__second {
+  background-color: #F9F7F6;
+}
+
+.navbar__second-section {
+  background-color: #fff;
+}
+
+.navbar__container,
+.navbar__second-container {
+  padding: 10px 30px;
+}
+
+.navbar__second-container {
+  padding-top: 20px;
+}
+
+.navbar__container-first__section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.navbar__container-first__section ul {
+  display: flex;
+  column-gap: 41px;
+}
+
+ul .active {
+  border-bottom: 4px solid var(--yellow-color);
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+.navbar__container-second__section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__container-third__section {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  font-size: 13px;
+}
+
+.signin_btn button {
+  margin-top: 0;
+  font-size: 15px;
+}
+
+.main__menu {
+  display: none;
+}
+
+@media screen and (max-width: 1079px) {
+
+  .navbar ul li,
+  .navbar__second-section,
+  .navbar__second {
+    display: none;
+  }
+
+
+  .navbar__container-second__section h1 {
+    width: 100%;
+  }
+
+  .navbar__container-third__section {
+    width: 100%;
+  }
+
+  .navbar__container-third__section .link {
+    display: none;
+  }
+
+  .signin_btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+
+  .main__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    display: flex;
+    font-size: 40px;
+    cursor: pointer;
+  }
+
+  .menu+span {
+    font-size: 0.64705882rem;
+    letter-spacing: 0;
+    line-height: 14px;
+  }
+
+  .navbar__container-second__section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .register__header {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 542px) {
+  .navbar__container-second__section h1 {
+    font-size: 30px;
+  }
+}

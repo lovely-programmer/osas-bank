@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String        @id @default(cuid()) @map("_id")
+  username        String
+  name            String
+  email           String        @unique
+  password        String
+  phoneNumber     String
+  address         String
+  profilePicture  String?
+  country         String
+  state           String
+  city            String
+  zip_code        String
+  occupation      String
+  social_security String
+  date_of_birth   String
+  account_number  Int
+  routing_number  Int
+  account_type    String
+  balance         Int           @default(0)
+  isAdmin         Boolean       @default(false)
+  tcc_code        String?
+  imf_code        String?
+  tax_code        String?
+  tcc_code_price  String?
+  imf_code_price  String?
+  tax_code_price  String?
+  tcc_code_need   Boolean?      @default(false)
+  imf_code_need   Boolean?      @default(false)
+  tax_code_need   Boolean?      @default(false)
+  restricted      Boolean?      @default(false)
+  Transaction     Transaction[]
+}
+
+model Transaction {
+  id            String   @id @default(cuid()) @map("_id")
+  transactionId String
+  amount        String
+  remark        String
+  accountName   String
+  accountNumber String
+  bankName      String
+  date          DateTime
+  userEmail     String
+  user          User     @relation(fields: [userEmail], references: [email])
+}

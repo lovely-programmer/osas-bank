@@ -1,0 +1,69 @@
+/* .transactions__container {
+  padding: 20px;
+  box-shadow: 0 0 16px 0 rgba(59, 51, 49, .15);
+  box-shadow: -1px 0px 13px 9px rgba(59, 51, 49, .15);
+  background-color: white;
+}
+
+.transactions h2 {
+  margin-bottom: 20px;
+}
+
+.transaction__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transaction__list .left__part .id {
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.transaction__list .left__part .date {
+  font-size: 13px;
+  padding-bottom: 10px;
+  color: #e37219;
+}
+
+.transaction__list .left__part .reason {
+  color: #7D9FC9;
+  font-size: 14px;
+}
+
+.transaction__list .center__part,
+.transaction__list .right__part {
+  text-align: right;
+}
+
+.transaction__list .center__part p:first-child {
+  font-size: 13px;
+  padding-bottom: 5px;
+}
+
+.transaction__list .center__part p:nth-child(2) {
+  padding-bottom: 5px;
+  color: #FFB6AE;
+}
+
+.transaction__list .center__part p:last-child {
+  font-size: 14px;
+  color: #46b7a8;
+}
+
+.transaction__list .right__part p {
+  font-size: 13px;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.transaction__list .right__part .right__btn button {
+  padding: 7px !important;
+  font-size: 13px !important;
+}
+
+@media screen and (max-width: 690px) {
+  .transaction__list {
+    flex-direction: column;
+  }
+} */
