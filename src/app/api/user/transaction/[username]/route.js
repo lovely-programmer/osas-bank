@@ -2,13 +2,13 @@ import { NextResponse } from "next/server";
 import prisma from "../../../../../utils/connect";
 
 export const PUT = async (req, { params }) => {
-  const { email } = params;
+  const { username } = params;
   const { amount, balance } = await req.json();
 
   const newBalance = balance - parseInt(amount);
 
   await prisma.user.update({
-    where: { email },
+    where: { username },
     data: { balance: newBalance },
   });
 

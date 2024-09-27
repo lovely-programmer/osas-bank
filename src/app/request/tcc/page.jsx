@@ -17,9 +17,9 @@ export default function Tcc() {
   const router = useRouter();
   const { session } = useSession();
 
-  const { user, isLoading } = getUser(session?.email);
+  const { user, isLoading } = getUser(session?.username);
 
-  const userEmail = session?.email;
+  const userId = session?.username;
 
   const getFromLocalStorage = () => {
     if (typeof window !== "undefined") {
@@ -40,16 +40,16 @@ export default function Tcc() {
     } else if (user?.tcc_code === tccCode && user?.imf_code_need === true) {
       await fetch("/api/user/update/tcc", {
         method: "PUT",
-        body: JSON.stringify(userEmail),
+        body: JSON.stringify(userId),
       });
       router.push("/request/imf");
     } else if (user?.tcc_code === tccCode) {
       await fetch("/api/user/update/tcc", {
         method: "PUT",
-        body: JSON.stringify(userEmail),
+        body: JSON.stringify(userId),
       });
 
-      await fetch(`/api/user/transaction/${userEmail}`, {
+      await fetch(`/api/user/transaction/${userId}`, {
         method: "PUT",
         body: JSON.stringify({
           amount: transferData?.amount,
@@ -61,7 +61,7 @@ export default function Tcc() {
       const res = await fetch("/api/user/transaction", {
         method: "POST",
         body: JSON.stringify({
-          sendBy: userEmail,
+          sendBy: userId,
           amount: transferData?.amount,
           accountName: transferData?.accountName,
           accountNumber: transferData?.accountNumber,

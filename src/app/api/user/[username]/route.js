@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import prisma from "../../../../utils/connect";
 
 export const GET = async (req, { params }) => {
-  const { email } = params;
+  const { username } = params;
   try {
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findFirst({
       where: {
-        email,
+        username,
       },
     });
     return new NextResponse(JSON.stringify(user), { status: 200 });

@@ -8,9 +8,12 @@ import Address from "../../../../components/RegisterDetails/Address";
 import Account from "../../../../components/RegisterDetails/Account";
 import VerifyIdentity from "../../../../components/RegisterDetails/VerifyIdentity";
 import { toast } from "react-toastify";
-import { authorizeUser } from "../../../actions/authActions";
+// import { authorizeUser } from "../../../actions/authActions";
+import { useRouter } from "next/navigation";
 
 export default function Enrollment() {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     username: "",
     name: "",
@@ -102,7 +105,12 @@ export default function Enrollment() {
       });
 
       if (res.ok) {
-        authorizeUser(userData);
+        await fetch("/api/session", {
+          method: "POST",
+          body: JSON.stringify(username),
+        });
+
+        router.push("/dashboard");
       }
     }
   };

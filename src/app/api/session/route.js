@@ -16,7 +16,6 @@ export const POST = async (req) => {
   // simulate looking up the user in db
   await sleep(250);
 
-  // return new NextResponse.redirect(loginUrl);
   return new NextResponse(JSON.stringify(session));
 };
 

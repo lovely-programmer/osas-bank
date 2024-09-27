@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import RegisterNavbar from "../../../components/registerNavbar/Register_navbar";
 import "../../register/identity/enrollment/register.css";
 // import { useFormState } from "react-dom";
@@ -11,6 +12,8 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -19,15 +22,12 @@ export default function Login() {
       body: JSON.stringify({ username, password }),
     });
 
-    await fetch("/api/session", {
-      method: "POST",
-      body: JSON.stringify(username),
-    });
-
     if (res.ok) {
-      const userData = await res.json();
-      console.log(userData);
-      // authorizeUser(userData);
+      await fetch("/api/session", {
+        method: "POST",
+        body: JSON.stringify(username),
+      });
+      router.push("/dashboard");
     } else {
       toast.error("Username or Password incorrect");
     }

@@ -6,7 +6,7 @@ import { Chart as ChartJs, defaults } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import sourceData from "../../data/sourceData.json";
 import { MdOutlineMenu } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Sidebar from "../../components/dashboardComponents/Sidebar";
 import useSession from "../../lib/use-session";
 import { redirect } from "next/navigation";
@@ -25,7 +25,7 @@ export default function Dashboard() {
 
   const { session, isLoading } = useSession();
 
-  const { user, isLoading: fetchingUser } = getUser(session?.email);
+  const { user, isLoading: fetchingUser } = getUser(session?.username);
 
   if (!session?.isLoggedIn) {
     redirect("/");
@@ -37,7 +37,7 @@ export default function Dashboard() {
 
   const balance = numberWithCommas(String(user?.balance));
 
-  if (isLoading || fetchingUser) {
+  if (isLoading) {
     return <Spinner />;
   }
 

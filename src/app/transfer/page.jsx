@@ -15,7 +15,7 @@ export default function Transfer() {
 
   const { session } = useSession();
 
-  const { user, isLoading } = getUser(session?.email);
+  const { user, isLoading } = getUser(session?.username);
 
   const getFromLocalStorage = () => {
     if (typeof window !== "undefined") {

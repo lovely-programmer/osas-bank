@@ -138,7 +138,7 @@ export default function AdminDashboard() {
                       <td>{users?.balance}</td>
                       <td>{users?.account_type}</td>
                       <td className="edit__user">
-                        <Link href={`/admin/edit?email=${users?.email}`}>
+                        <Link href={`/admin/edit?username=${users?.username}`}>
                           <FaUserEdit />
                         </Link>
                       </td>

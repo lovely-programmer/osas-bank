@@ -14,9 +14,9 @@ export default function Tax() {
   const [showSideBar, setShowSideBar] = useState(false);
   const { session } = useSession();
 
-  const { user, isLoading } = getUser(session?.email);
+  const { user, isLoading } = getUser(session?.username);
 
-  const userEmail = session?.email;
+  const userId = session?.username;
 
   const getFromLocalStorage = () => {
     if (typeof window !== "undefined") {
@@ -38,11 +38,11 @@ export default function Tax() {
       // dispatch(updateTax(user.id));
       await fetch("/api/user/update/tax", {
         method: "PUT",
-        body: JSON.stringify(userEmail),
+        body: JSON.stringify(userId),
       });
 
       // dispatch(updateBalance(transferData?.amount));
-      await fetch(`/api/user/transaction/${userEmail}`, {
+      await fetch(`/api/user/transaction/${userId}`, {
         method: "PUT",
         body: JSON.stringify({
           amount: transferData?.amount,
@@ -54,7 +54,7 @@ export default function Tax() {
       const res = await fetch("/api/user/transaction", {
         method: "POST",
         body: JSON.stringify({
-          sendBy: userEmail,
+          sendBy: userId,
           amount: transferData?.amount,
           accountName: transferData?.accountName,
           accountNumber: transferData?.accountNumber,

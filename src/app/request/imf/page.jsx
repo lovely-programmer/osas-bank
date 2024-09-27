@@ -16,9 +16,9 @@ export default function Imf() {
   const { session } = useSession();
   const router = useRouter();
 
-  const { user, isLoading } = getUser(session?.email);
+  const { user, isLoading } = getUser(session?.username);
 
-  const userEmail = session?.email;
+  const userId = session?.username;
 
   const getFromLocalStorage = () => {
     if (typeof window !== "undefined") {
@@ -40,18 +40,18 @@ export default function Imf() {
       // dispatch(updateTcc(user.id));
       await fetch("/api/user/update/imf", {
         method: "PUT",
-        body: JSON.stringify(userEmail),
+        body: JSON.stringify(userId),
       });
       router.push("/request/imf");
     } else if (user?.imf_code === imfCode) {
       // dispatch(updateTcc(user.id));
       await fetch("/api/user/update/imf", {
         method: "PUT",
-        body: JSON.stringify(userEmail),
+        body: JSON.stringify(userId),
       });
 
       // dispatch(updateBalance(transferData?.amount));
-      await fetch(`/api/user/transaction/${userEmail}`, {
+      await fetch(`/api/user/transaction/${userId}`, {
         method: "PUT",
         body: JSON.stringify({
           amount: transferData?.amount,
@@ -63,7 +63,7 @@ export default function Imf() {
       const res = await fetch("/api/user/transaction", {
         method: "POST",
         body: JSON.stringify({
-          sendBy: userEmail,
+          sendBy: userId,
           amount: transferData?.amount,
           accountName: transferData?.accountName,
           accountNumber: transferData?.accountNumber,

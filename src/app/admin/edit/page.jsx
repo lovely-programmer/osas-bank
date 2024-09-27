@@ -11,10 +11,10 @@ import Spinner from "../../../components/Spinner/Spinner";
 
 export default function EditUser() {
   const searchParams = useSearchParams();
-  const email = searchParams.get("email");
+  const userId = searchParams.get("username");
   const { mutate } = useSWRConfig();
 
-  const { user, isLoading } = getUser(email);
+  const { user, isLoading } = getUser(userId);
   const [showSideBar, setShowSideBar] = useState(false);
 
   const [name, setName] = useState();
