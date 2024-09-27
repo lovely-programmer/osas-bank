@@ -127,20 +127,10 @@ export default function Transfer() {
               <MdOutlineMenu />
             </div>
           </nav>
-          <h2
-            style={{
-              paddingLeft: "20px",
-              paddingTop: "10px",
-              fontWeight: "500",
-            }}
-            className="main__header"
-          >
-            Transfer
-          </h2>
+          <h2 className="main__header transfer__header">Transfer</h2>
           <form
             onSubmit={handleSubmit}
-            style={{ paddingLeft: "20px" }}
-            className="dashboard__form__group"
+            className="dashboard__form__group transfer__form"
           >
             <div className="form__group">
               <input

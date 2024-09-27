@@ -177,6 +177,16 @@ thead {
   padding-right: 10px;
 }
 
+.transfer__form {
+  padding-left: 20px;
+}
+
+.transfer__header {
+  padding-left: "20px";
+  padding-top: "10px";
+  font-weight: "500";
+}
+
 .transactions__container {
   padding: 20px;
   box-shadow: 0 0 16px 0 rgba(59, 51, 49, .15);
@@ -254,5 +264,15 @@ thead {
 @media screen and (max-width: 690px) {
   .transaction__list {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .transfer__form {
+    padding-left: 0;
+  }
+
+  .transfer__header {
+    text-align: center;
   }
 }
