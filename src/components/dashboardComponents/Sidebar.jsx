@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import { AiFillMessage } from "react-icons/ai";
 import { FaTachometerAlt, FaHourglass } from "react-icons/fa";
 import { GiPayMoney } from "react-icons/gi";
