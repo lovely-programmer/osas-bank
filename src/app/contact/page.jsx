@@ -10,8 +10,12 @@ export default function Contact() {
       <div className="dashboard__content">
         <Sidebar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className="dashboard__right">
-          <nav className="menu">
-            <div className="menu__content" onClick={() => setShowSideBar(true)}>
+          <nav className="dashboard__navbar">
+            <h2>WELLS FARGO</h2>
+            <div
+              className="menu__content menu"
+              onClick={() => setShowSideBar(true)}
+            >
               <MdOutlineMenu />
             </div>
           </nav>

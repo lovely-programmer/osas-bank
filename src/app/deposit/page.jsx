@@ -3,9 +3,14 @@ import { useState } from "react";
 import "./deposit.css";
 import Sidebar from "../../components/dashboardComponents/Sidebar";
 import { MdOutlineMenu } from "react-icons/md";
+import useSession from "../../lib/use-session";
+import { getUser } from "../../lib/requests";
 
 export default function Deposit() {
   const [showSideBar, setShowSideBar] = useState(false);
+  const { session, isLoading } = useSession();
+  const { user } = getUser(session?.username);
+
   return (
     <div className="dashboard__container">
       <div className="dashboard__content">
@@ -35,11 +40,11 @@ export default function Deposit() {
               </div>
               <div className="deposit_box">
                 <span>Account Number</span>
-                <div className="deposit_column">5290394039</div>
+                <div className="deposit_column">{user?.account_number}</div>
               </div>
               <div className="deposit_box">
                 <span>Account Name</span>
-                <div className="deposit_column">Christian Rose</div>
+                <div className="deposit_column">{user?.name}</div>
               </div>
             </div>
           </div>

@@ -36,7 +36,7 @@
   margin-top: 10px;
   padding: 10px;
   box-shadow: -1px 1px 5px 3px rgba(59, 51, 49, .15);
-  color: #5A63FF;
+  /* color: #5A63FF; */
 }
 
 @media screen and (max-width: 500px) {
