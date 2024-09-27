@@ -10,3 +10,7 @@ export const sessionOptions = {
 export const defaultSession = {
   isLoggedIn: false,
 };
+
+export function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

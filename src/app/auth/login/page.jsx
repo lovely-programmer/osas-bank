@@ -2,7 +2,7 @@
 import RegisterNavbar from "../../../components/registerNavbar/Register_navbar";
 import "../../register/identity/enrollment/register.css";
 // import { useFormState } from "react-dom";
-import { authorizeUser } from "../../actions/authActions";
+// import { authorizeUser } from "../../actions/authActions";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -17,6 +17,11 @@ export default function Login() {
     const res = await fetch("/api/user/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
+    });
+
+    await fetch("/api/session", {
+      method: "POST",
+      body: JSON.stringify(username),
     });
 
     if (res.ok) {

@@ -1,27 +1,23 @@
 import { NextResponse } from "next/server";
 import { getIronSession } from "iron-session";
-import { defaultSession, sessionOptions } from "../../../lib/lib";
+import { defaultSession, sessionOptions, sleep } from "../../../lib/lib";
 import { cookies } from "next/headers";
 
-// export async function POST(req) {
-//   const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+export const POST = async (req) => {
+  const { username } = await req.json();
+  const session = await getIronSession(cookies(), sessionOptions);
 
-//   const formData = await req.formData();
+  const loginUrl = new URL("/dashboard", req.url);
 
-//   session.isLoggedIn = true;
-//   session.username = (formData.get("username") as string) ?? "No username";
-//   await session.save();
+  session.isLoggedIn = true;
+  session.username = username;
+  await session.save();
 
-//   // simulate looking up the user in db
-//   await sleep(250);
+  // simulate looking up the user in db
+  await sleep(250);
 
-//   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/303
-//   // not using redirect() yet: https://github.com/vercel/next.js/issues/51592#issuecomment-1810212676
-//   return Response.redirect(
-//     `${request.nextUrl.origin}/app-router-client-component-redirect-route-handler-fetch`,
-//     303,
-//   );
-// }
+  return new NextResponse.redirect(loginUrl);
+};
 
 export const GET = async (req) => {
   const session = await getIronSession(cookies(), sessionOptions);
