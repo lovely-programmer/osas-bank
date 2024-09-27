@@ -9,7 +9,7 @@ import Spinner from "../Spinner/Spinner";
 export default function Navbar() {
   const { session, isLoading } = useSession();
 
-  if (session?.isLoggedIn) {
+  if (session.isLoggedIn) {
     redirect("/dashboard");
   }
 

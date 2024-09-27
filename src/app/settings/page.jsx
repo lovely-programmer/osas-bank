@@ -11,6 +11,8 @@ export default function Settings() {
   const { session, isLoading } = useSession();
   const [showSideBar, setShowSideBar] = useState(false);
 
+  const { user } = getUser(session?.username);
+
   if (isLoading) return <Spinner />;
   return (
     <div className="dashboard__container">
@@ -33,9 +35,9 @@ export default function Settings() {
             <div className="account__content">
               <div className="account__profile__details">
                 <IoPersonCircle />
-                <h3>{session?.name}</h3>
-                <p>{session?.username}</p>
-                <p>{session?.account_number}</p>
+                <h3>{user?.name}</h3>
+                <p>{user?.username}</p>
+                <p>{user?.account_number}</p>
               </div>
             </div>
 
@@ -44,23 +46,19 @@ export default function Settings() {
                 <div className="item">
                   <span>Username</span>
                   <div className="form__group">
-                    <input type="text" value={session?.username} readOnly />
+                    <input type="text" value={user?.username} readOnly />
                   </div>
                 </div>
                 <div className="item">
                   <span>Address</span>
                   <div className="form__group">
-                    <input type="text" value={session?.address} readOnly />
+                    <input type="text" value={user?.address} readOnly />
                   </div>
                 </div>
                 <div className="item">
                   <span>Date of Birth</span>
                   <div className="form__group">
-                    <input
-                      type="date"
-                      value={session?.date_of_birth}
-                      readOnly
-                    />
+                    <input type="date" value={user?.date_of_birth} readOnly />
                   </div>
                 </div>
               </div>
@@ -69,19 +67,19 @@ export default function Settings() {
                 <div className="item">
                   <span>Account name</span>
                   <div className="form__group">
-                    <input type="text" value={session?.name} readOnly />
+                    <input type="text" value={user?.name} readOnly />
                   </div>
                 </div>
                 <div className="item">
                   <span>Phone Number</span>
                   <div className="form__group">
-                    <input type="text" value={session?.phoneNumber} readOnly />
+                    <input type="text" value={user?.phoneNumber} readOnly />
                   </div>
                 </div>
                 <div className="item">
                   <span>Occupation</span>
                   <div className="form__group">
-                    <input type="text" value={session?.occupation} readOnly />
+                    <input type="text" value={user?.occupation} readOnly />
                   </div>
                 </div>
               </div>

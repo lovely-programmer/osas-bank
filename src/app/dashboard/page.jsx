@@ -9,7 +9,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import { useState } from "react";
 import Sidebar from "../../components/dashboardComponents/Sidebar";
 import useSession from "../../lib/use-session";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 import { getUser } from "../../lib/requests";
 import Spinner from "../../components/Spinner/Spinner";
 defaults.maintainAspectRatio = false;
@@ -27,15 +27,15 @@ export default function Dashboard() {
 
   const { user, isLoading: fetchingUser } = getUser(session?.username);
 
-  if (!session?.isLoggedIn) {
-    redirect("/");
-  }
+  // if (!session?.isLoggedIn) {
+  //   redirect("/");
+  // }
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  const balance = numberWithCommas(String(user?.balance));
+  const balance = numberWithCommas(user?.balance.toString());
 
   if (isLoading) {
     return <Spinner />;
@@ -125,7 +125,7 @@ export default function Dashboard() {
                 <div className="right__part">
                   <p>Debit</p>
                   <div className="button_design right__btn">
-                    <button>View Details</button>
+                    {/* <button>View Details</button> */}
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export default function Dashboard() {
                 <div className="right__part">
                   <p>Debit</p>
                   <div className="button_design right__btn">
-                    <button>View Details</button>
+                    {/* <button>View Details</button> */}
                   </div>
                 </div>
               </div>
