@@ -1,0 +1,30 @@
+.request {
+  padding-left: 20px;
+}
+
+.request p {
+  padding-bottom: 10px;
+}
+
+.code__body {
+  margin-top: 20px;
+}
+
+.code__body h3 {
+  padding-bottom: 10px;
+}
+
+.code__body .reqBtn {
+  background-color: unset;
+  border: none;
+}
+
+.code__footer {
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .code__body .reqBtn button {
+    font-size: 14px;
+  }
+}

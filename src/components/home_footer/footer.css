@@ -1,0 +1,98 @@
+.footer__container {
+  margin-top: 30px;
+  padding: 24px;
+  background-color: #F4F0ED;
+}
+
+.footer_upper_section {
+  max-width: 1016px;
+}
+
+.footer_upper_section .main_section div {
+  border-left: 1px solid #141414;
+  height: 16px;
+  line-height: 16px;
+  list-style: none;
+  margin: 0 16px 16px -3px;
+  padding: 0 0 0 16px;
+  font-size: .76470588rem;
+}
+
+
+.about_wells .footer_upper_section .main_section div p {
+  margin-bottom: 16px;
+  letter-spacing: 0;
+  padding: 0 3px;
+}
+
+.footer_upper_section .main_section {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.footer__account {
+  padding: 0 16px;
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer__account span svg {
+  font-size: 30px;
+}
+
+.footer_note {
+  font-size: .76470588rem;
+  line-height: 1.538;
+}
+
+.footer_mb {
+  margin: 0 0 1rem;
+}
+
+.footer_box {
+  border: 1px solid #141414;
+  font-size: 1.05882353rem;
+  font-weight: 700;
+  line-height: 1.67;
+  max-width: 100%;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.footer_box p {
+  font-size: 1.05882353rem;
+  line-height: 1.67;
+  font-weight: 700;
+  padding-bottom: 12px;
+}
+
+.footer_box ul {
+  margin: 0 0 20px 10px;
+  padding: 0 0 0 10px;
+  font-size: 1.05882353rem;
+  line-height: 1.67;
+}
+
+.footer_box ul li {
+  color: #141414;
+  list-style-type: disc;
+  margin-bottom: 8px;
+}
+
+.equal_housing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.equal_housing img {
+  height: 13px;
+}
+
+.equal_housing p {
+  font-weight: 700;
+}

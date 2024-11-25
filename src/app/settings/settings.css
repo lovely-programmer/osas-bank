@@ -1,0 +1,64 @@
+/* .account__content {
+  margin-top: 20px;
+} */
+
+.account__profile__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.account__profile__details svg {
+  font-size: 100px;
+  cursor: pointer;
+}
+
+.account__profile__details h3 {
+  font-weight: 800;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.account__profile__details p {
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.account__edit {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.account__edit .left,
+.account__edit .right {
+  width: 100%;
+}
+
+.account__edit .left .item span,
+.account__edit .right .item span {
+  padding-bottom: 10px;
+  display: block;
+  font-size: 14px;
+}
+
+.account__edit .form__group {
+  padding: 0 0 0 8px !important;
+}
+
+.hide__btn {
+  display: none;
+}
+
+@media screen and (max-width: 920px) {
+  .settings {
+    padding: 20px;
+  }
+
+  .settings h2 {
+    text-align: center;
+  }
+}
