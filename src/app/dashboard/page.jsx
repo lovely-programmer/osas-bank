@@ -9,7 +9,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import { useState } from "react";
 import Sidebar from "../../components/dashboardComponents/Sidebar";
 import useSession from "../../lib/use-session";
-import { getUser } from "../../lib/requests";
+import { getUser, getUserTransaction } from "../../lib/requests";
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 
@@ -25,6 +25,8 @@ export default function Dashboard() {
 
   const { user } = getUser(session?.username);
 
+  const { userTransaction, isLoading, mutate } = getUserTransaction(user?.id);
+
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -32,6 +34,14 @@ export default function Dashboard() {
   const balance = numberWithCommas("" + user?.balance);
 
   const verifyBalance = balance === "undefined" ? 0 : balance;
+
+  const copiedArray = [...userTransaction];
+
+  const lengthToKeep = 3;
+
+  for (let i = 0; i < copiedArray?.length - lengthToKeep; i++) {
+    copiedArray?.pop();
+  }
 
   return (
     <div className="dashboard__container">
@@ -99,49 +109,43 @@ export default function Dashboard() {
             <div className="dashboard__transaction">
               <div className="dashboard__transaction__header">
                 <p>Recent Transaction</p>
-                <Link href="/transactions">See all</Link>
+                <Link href="/transactions" onClick={() => mutate()}>
+                  See all
+                </Link>
               </div>
             </div>
-            <div className="transactions__container">
-              <div className="transaction__list">
-                <div className="left__part">
-                  <p className="id">WFA/MHUWWOOPHWU-2345</p>
-                  <p className="date">2 Sep 2024 6:00 am</p>
-                  <p className="reason">Groceries</p>
-                </div>
-                <div className="center__part">
-                  <p>Amount</p>
-                  <p>-2,000 USD</p>
-                  <p>Completed</p>
-                </div>
-                <div className="right__part">
-                  <p>Debit</p>
-                  <div className="button_design right__btn">
-                    {/* <button>View Details</button> */}
+            {isLoading && <p>Loading...</p>}
+            {copiedArray?.map((transaction) => (
+              <div key={transaction?.id} className="transactions__container">
+                <div className="transaction__list">
+                  <div className="left__part">
+                    <p className="id">{transaction?.transactionId}</p>
+                    <p className="date">{transaction?.date}</p>
+                    <p className="reason">{transaction?.remark}</p>
+                  </div>
+                  <div className="center__part">
+                    <p>Amount</p>
+                    <p
+                      style={
+                        transaction?.transactionType === "credit"
+                          ? { color: "green" }
+                          : { color: "red" }
+                      }
+                    >
+                      {transaction?.transactionType === "credit" ? "+" : "-"}
+                      {numberWithCommas("" + transaction?.amount)} USD
+                    </p>
+                    <p>Completed</p>
+                  </div>
+                  <div className="right__part">
+                    <p>{transaction?.transactionType}</p>
+                    <div className="button_design right__btn">
+                      {/* <button>View Details</button> */}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="transactions__container">
-              <div className="transaction__list">
-                <div className="left__part">
-                  <p className="id">WFA/MHUWWOOPHWU-2345</p>
-                  <p className="date">2 Sep 2024 6:00 am</p>
-                  <p className="reason">Groceries</p>
-                </div>
-                <div className="center__part">
-                  <p>Amount</p>
-                  <p>-2,000 USD</p>
-                  <p>Completed</p>
-                </div>
-                <div className="right__part">
-                  <p>Debit</p>
-                  <div className="button_design right__btn">
-                    {/* <button>View Details</button> */}
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

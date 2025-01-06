@@ -9,6 +9,7 @@ import "../request.css";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 import Spinner from "../../../components/Spinner/Spinner";
+import { getFormatedDateTime } from "../../admin/transaction/page";
 
 export default function Imf() {
   const [imfCode, setImfCode] = useState();
@@ -51,7 +52,7 @@ export default function Imf() {
       });
 
       // dispatch(updateBalance(transferData?.amount));
-      await fetch(`/api/user/transaction/${userId}`, {
+      await fetch(`/api/user/transactions/${userId}`, {
         method: "PUT",
         body: JSON.stringify({
           amount: transferData?.amount,
@@ -59,21 +60,26 @@ export default function Imf() {
         }),
       });
 
+      const now = new Date();
+      const date = getFormatedDateTime(now);
+
       // dispatch(createTransaction(trans));
-      const res = await fetch("/api/user/transaction", {
+      const res = await fetch("/api/user/transactions", {
         method: "POST",
         body: JSON.stringify({
-          sendBy: userId,
-          amount: transferData?.amount,
-          accountName: transferData?.accountName,
-          accountNumber: transferData?.accountNumber,
-          remark: transferData?.remark,
-          date: Date.now(),
+          userId: user?._id,
+          receiverName: accountName,
+          receiverAccountNumber: accountNumber,
+          bankName,
+          amount,
+          date,
+          remark,
+          transactionType: "debit",
           transactionId: uuidv4(),
         }),
       });
       if (res.ok) {
-        toast.success("You have Successfully Deposited");
+        toast.success("Transaction Successful");
       }
 
       const timer = setTimeout(() => {

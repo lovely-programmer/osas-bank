@@ -14,10 +14,10 @@ datasource db {
 }
 
 model User {
-  id                String        @id @default(cuid()) @map("_id")
+  id                String   @id @default(cuid()) @map("_id")
   username          String
   name              String
-  email             String        @unique
+  email             String   @unique
   password          String
   phoneNumber       String
   address           String
@@ -32,32 +32,33 @@ model User {
   account_number    Int
   routing_number    Int
   account_type      String
-  verified          Boolean       @default(false)
+  verified          Boolean  @default(false)
   verification_code Int?
-  balance           Int           @default(0)
-  isAdmin           Boolean       @default(false)
+  balance           Int      @default(0)
+  isAdmin           Boolean  @default(false)
   tcc_code          String?
   imf_code          String?
   tax_code          String?
   tcc_code_price    String?
   imf_code_price    String?
   tax_code_price    String?
-  tcc_code_need     Boolean?      @default(true)
-  imf_code_need     Boolean?      @default(true)
-  tax_code_need     Boolean?      @default(true)
-  restricted        Boolean?      @default(true)
-  Transaction       Transaction[]
+  tcc_code_need     Boolean? @default(true)
+  imf_code_need     Boolean? @default(true)
+  tax_code_need     Boolean? @default(true)
+  restricted        Boolean? @default(true)
 }
 
 model Transaction {
-  id            String   @id @default(cuid()) @map("_id")
-  transactionId String
-  amount        String
-  remark        String
-  accountName   String
-  accountNumber String
-  bankName      String
-  date          DateTime
-  userEmail     String
-  user          User     @relation(fields: [userEmail], references: [email])
+  id                    String  @id @default(cuid()) @map("_id")
+  transactionId         String
+  userId                String
+  transactionType       String
+  receiverAccountNumber String?
+  receiverName          String?
+  senderAccountNumber   String?
+  senderName            String?
+  amount                String
+  remark                String
+  bankName              String
+  date                  String
 }

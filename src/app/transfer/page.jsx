@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 import Spinner from "../../components/Spinner/Spinner";
 import { zodTransferConfig } from "../../hooks/zod";
 import Link from "next/link";
+import { getFormatedDateTime } from "../admin/transaction/page";
 
 export default function Transfer() {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -46,8 +47,6 @@ export default function Transfer() {
   );
   const [ifsc, setIfsc] = useState(transferData?.ifsc);
   const [accountType, setAccountType] = useState(transferData?.accountType);
-
-  const userEmail = user?.email;
 
   const transferDetails = {
     amount,
@@ -98,7 +97,7 @@ export default function Transfer() {
         toast.error("Transaction Failed not enough funds");
       } else {
         // dispatch(updateBalance(userData));
-        await fetch(`/api/user/transaction/${userEmail}`, {
+        await fetch(`/api/user/transactions/${user?.username}`, {
           method: "PUT",
           body: JSON.stringify({
             amount: transferData?.amount,
@@ -106,20 +105,25 @@ export default function Transfer() {
           }),
         });
 
-        const res = await fetch("/api/user/transaction", {
+        const now = new Date();
+        const date = getFormatedDateTime(now);
+
+        const res = await fetch("/api/user/transactions", {
           method: "POST",
           body: JSON.stringify({
-            sendBy: userEmail,
+            userId: user?._id,
+            receiverName: accountName,
+            receiverAccountNumber: accountNumber,
+            bankName,
             amount,
-            accountName,
-            accountNumber,
-            date: Date.now(),
+            date,
             remark,
+            transactionType: "debit",
             transactionId: uuidv4(),
           }),
         });
         if (res.ok) {
-          toast.success("You have Successfully Deposited");
+          toast.success("Transaction Successful");
         }
         setTimeout(() => {
           router.push("/transactions");

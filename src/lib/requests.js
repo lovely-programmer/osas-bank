@@ -36,3 +36,16 @@ export const getAllUsers = () => {
     mutate,
   };
 };
+
+export const getUserTransaction = (id) => {
+  const { data, mutate, error, isLoading } = useSWR(
+    `/api/user/transactions/get/${id}`,
+    fetcher
+  );
+
+  return {
+    userTransaction: data,
+    isLoading,
+    mutate,
+  };
+};

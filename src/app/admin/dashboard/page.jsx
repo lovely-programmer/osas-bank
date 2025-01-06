@@ -16,9 +16,9 @@ export default function AdminDashboard() {
   const { session } = useSession();
   const { user } = getUser(session?.username);
 
-  if (user?.isAdmin !== true) {
-    redirect("/dashboard");
-  }
+  // if (user?.isAdmin !== true) {
+  //   redirect("/dashboard");
+  // }
 
   const [showSideBar, setShowSideBar] = useState(false);
   const [id, setId] = useState("");
@@ -125,6 +125,7 @@ export default function AdminDashboard() {
                   <td>Account Number</td>
                   <td>Account Balance</td>
                   <td>Account Type</td>
+                  <td>Transaction</td>
                   <td>Edit</td>
                   <td>Delete</td>
                 </tr>
@@ -145,6 +146,13 @@ export default function AdminDashboard() {
                     <td>{users?.account_number}</td>
                     <td>{users?.balance}</td>
                     <td>{users?.account_type}</td>
+                    <td>
+                      <Link
+                        href={`/admin/transaction?id=${users?.id}&balance=${users?.balance}&username=${users?.username}`}
+                      >
+                        transaction
+                      </Link>
+                    </td>
                     <td className="edit__user">
                       <Link href={`/admin/edit?username=${users?.username}`}>
                         <FaUserEdit />
