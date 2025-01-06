@@ -35,7 +35,7 @@ export default function Dashboard() {
 
   const verifyBalance = balance === "undefined" ? 0 : balance;
 
-  const copiedArray = [...userTransaction];
+  const copiedArray = userTransaction && [...userTransaction];
 
   const lengthToKeep = 3;
 
