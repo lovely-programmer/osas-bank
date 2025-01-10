@@ -27,8 +27,8 @@ export default function Enrollment() {
     city: "",
     state: "",
     zip_code: "",
-    social_security: "",
-    confirm_social: "",
+    // social_security: "",
+    // confirm_social: "",
     date_of_birth: "",
     account_number: Math.floor(Math.random() * 9000000000 + 1000000000),
     routing_number: Math.floor(Math.random() * 900000000 + 100000000),
@@ -73,13 +73,13 @@ export default function Enrollment() {
       back={goBack}
       next={goNext}
     />,
-    <VerifyIdentity
-      {...formData}
-      updateFields={updateFields}
-      back={goBack}
-      next={goNext}
-      formData={formData}
-    />,
+    // <VerifyIdentity
+    //   {...formData}
+    //   updateFields={updateFields}
+    //   back={goBack}
+    //   next={goNext}
+    //   formData={formData}
+    // />,
   ]);
 
   return (

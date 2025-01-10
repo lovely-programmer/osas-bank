@@ -4,30 +4,112 @@ import { useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
 import { zodAccountInfoConfig } from "../../hooks/zod";
 import { toast } from "react-toastify";
+import Spinner from "../Spinner/Spinner";
 
 function Account({
+  name,
+  address,
+  occupation,
+  country,
+  city,
+  state,
+  zip_code,
+  date_of_birth,
+  account_number,
+  routing_number,
+  verification_code,
   username,
   phoneNumber,
   account_type,
   email,
-  updateFields,
   password,
   confirmPassword,
+  updateFields,
   back,
-  next,
 }) {
   const [hide, setHide] = useState(true);
   const [hideConfirm, setHideConfirm] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const { register, errors, handleSubmit, setValue } = zodAccountInfoConfig();
 
-  const submit = () => {
+  // const {
+  //   username,
+  //   name,
+  //   email,
+  //   address,
+  //   account_type,
+  //   phoneNumber,
+  //   password,
+  //   confirmPassword,
+  //   occupation,
+  //   country,
+  //   city,
+  //   state,
+  //   zip_code,
+  //   social_security,
+  //   confirm_social,
+  //   date_of_birth,
+  //   account_number,
+  //   routing_number,
+  //   verification_code,
+  // } = formData;
+
+  const submit = async () => {
     if (password !== confirmPassword) {
       toast.error("Password do not match");
     } else {
-      next();
+      const userData = {
+        username,
+        name,
+        email,
+        password,
+        address,
+        phoneNumber,
+        account_type,
+        country,
+        state,
+        city,
+        zip_code,
+        occupation,
+        // social_security,
+        date_of_birth,
+        balance: 0,
+        account_number,
+        routing_number,
+        verification_code,
+      };
+
+      setLoading(true);
+
+      const res = await fetch("/api/user/register", {
+        method: "POST",
+        body: JSON.stringify(userData),
+      });
+
+      if (res.ok) {
+        localStorage.setItem(
+          "verification_email",
+          JSON.stringify({ username, password })
+        );
+
+        await fetch("/api/user/verification/registration", {
+          method: "POST",
+          body: JSON.stringify({ email, verification_code }),
+        });
+
+        router.push("/register/identity/verification");
+      } else {
+        // const data = await res.json();
+        toast.error("User already exist");
+        setLoading(false);
+      }
     }
   };
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <form onSubmit={handleSubmit(submit)}>
@@ -87,6 +169,19 @@ function Account({
         <div className="form_error">{errors.username.message}</div>
       )}
 
+      <div style={{ marginBottom: "10px" }}>Date of birth</div>
+      <div className="form__group">
+        <input
+          required
+          value={date_of_birth}
+          onChange={(e) => updateFields({ date_of_birth: e.target.value })}
+          name="date_of_birth"
+          type="date"
+          id="date_of_birth"
+          max="2005-12-01"
+        />
+      </div>
+
       <div style={{ paddingRight: "10px" }} className="form__group">
         <select
           onChange={(e) => updateFields({ account_type: e.target.value })}
@@ -114,7 +209,7 @@ function Account({
               setValue("password", e.target.value);
             }}
           />
-          <label htmlFor="username">Password</label>
+          <label htmlFor="password">Password</label>
         </div>
         {hide ? (
           <BiHide onClick={() => setHide(false)} />
@@ -140,7 +235,7 @@ function Account({
               setValue("confirmPassword", e.target.value);
             }}
           />
-          <label htmlFor="username">Confirm Password</label>
+          <label htmlFor="confirm_password">Confirm Password</label>
         </div>
         {hideConfirm ? (
           <BiHide onClick={() => setHideConfirm(false)} />
@@ -152,7 +247,7 @@ function Account({
         <div className="form_error">{errors.confirmPassword.message}</div>
       )}
 
-      <div className="create__account-btn">
+      {/* <div className="create__account-btn">
         <div className="register__btn">
           <button onClick={() => back()} type="button" className="prev_button">
             Previous
@@ -161,6 +256,18 @@ function Account({
 
         <div className="register__btn">
           <button type="submit">Next</button>
+        </div>
+      </div> */}
+
+      <div className="create__account-btn">
+        <div className="register__btn">
+          <button onClick={() => back()} type="button" className="prev_button">
+            Previous
+          </button>
+        </div>
+
+        <div className="register__btn">
+          <button type="submit">Finish</button>
         </div>
       </div>
     </form>

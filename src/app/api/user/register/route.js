@@ -16,7 +16,6 @@ export const POST = async (req) => {
     city,
     zip_code,
     occupation,
-    social_security,
     date_of_birth,
     balance,
     account_number,
@@ -61,7 +60,6 @@ export const POST = async (req) => {
       zip_code,
       occupation,
       balance: parseInt(balance),
-      social_security,
       date_of_birth,
     },
   });

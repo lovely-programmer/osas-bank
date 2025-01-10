@@ -39,7 +39,7 @@ export function zodAddressInfoConfig() {
 export function zodAccountInfoConfig() {
   const schema = z.object({
     email: z.string().email(),
-    phoneNumber: z.string().min(10).max(15),
+    phoneNumber: z.string().min(10).max(25),
     username: z.string().min(2).max(50),
     password: z.string().min(5).max(20),
     confirmPassword: z.string().min(5).max(20),

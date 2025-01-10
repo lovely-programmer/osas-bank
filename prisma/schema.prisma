@@ -27,7 +27,6 @@ model User {
   city              String
   zip_code          String
   occupation        String
-  social_security   String
   date_of_birth     String
   account_number    Int
   routing_number    Int
