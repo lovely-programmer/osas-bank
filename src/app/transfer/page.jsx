@@ -144,7 +144,11 @@ export default function Transfer() {
         <div className="dashboard__right">
           <nav className="dashboard__navbar">
             <Link href="/dashboard">
-              <h2>WELLS FARGO</h2>
+              <h2>
+                <span>FIRS</span>
+                <span style={{ color: "#ffcd41" }}>TRUST</span>
+                <span>FINANCE</span>
+              </h2>
             </Link>
             <div
               className="menu__content menu"

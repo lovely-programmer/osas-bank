@@ -64,7 +64,11 @@ export default function EditUser() {
         />
         <div className="dashboard__right">
           <nav className="dashboard__navbar">
-            <h2>WELLS FARGO</h2>
+            <h2>
+              <span>FIRS</span>
+              <span style={{ color: "#ffcd41" }}>TRUST</span>
+              <span>FINANCE</span>
+            </h2>
             <div
               className="menu__content menu"
               onClick={() => setShowSideBar(true)}

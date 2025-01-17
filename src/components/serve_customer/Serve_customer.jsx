@@ -16,11 +16,11 @@ export default function Serve_customer() {
           <div className="base">
             <h3>Who we are</h3>
             <span>
-              Wells Fargo helps strengthen communities through diversity,
+              Firstrustfinance helps strengthen communities through diversity,
               equity, and inclusion, economic empowerment, and sustainability.
             </span>
             <div className="button_design server_customer_button">
-              <button>About Wells Fargo</button>
+              <button>About Firstrustfinance</button>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function Serve_customer() {
               country thrive.
             </span>
             <div className="button_design server_customer_button">
-              <button>Wells Fargo Stories</button>
+              <button>Firstrustfinance Stories</button>
             </div>
           </div>
         </div>

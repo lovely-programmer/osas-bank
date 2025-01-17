@@ -98,7 +98,11 @@ export default function Tcc() {
         <Sidebar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className="dashboard__right">
           <nav className="dashboard__navbar">
-            <h2>WELLS FARGO</h2>
+            <h2>
+              <span>FIRS</span>
+              <span style={{ color: "#ffcd41" }}>TRUST</span>
+              <span>FINANCE</span>
+            </h2>
             <div
               className="menu__content menu"
               onClick={() => setShowSideBar(true)}
@@ -121,7 +125,8 @@ export default function Tcc() {
             </p>
             <p style={{ fontSize: "13px" }}>
               I don't have my TCC Code. Contact First Trust Customer Care via
-              email: <Link href="/contact">customer_care@wellsbank.com</Link>
+              email:{" "}
+              <Link href="/contact">customer_care@firstrustfinance.com</Link>
             </p>
 
             <div className="code__body">

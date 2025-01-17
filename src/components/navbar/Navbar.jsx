@@ -26,7 +26,11 @@ export default function Navbar() {
         <div className="navbar__container container">
           <div className="navbar__container-second__section">
             <h1>
-              <Link href="/">WELLS FARGO</Link>
+              <Link style={{ textDecoration: "none" }} href="/">
+                <span>FIRS</span>
+                <span style={{ color: "#ffcd41" }}>TRUST</span>
+                <span>FINANCE</span>
+              </Link>
             </h1>
 
             <div className="navbar__container-third__section">

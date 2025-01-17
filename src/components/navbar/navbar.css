@@ -154,10 +154,28 @@ ul .active {
 
 @media screen and (max-width: 542px) {
   .navbar__container-second__section h1 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .menu__content {
     width: 100dvw !important;
+  }
+
+  .signin_btn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .navbar__container-second__section h1 {
+    font-size: 19px;
+  }
+
+  .signin_btn {
+    margin-right: 10px;
+  }
+
+  .menu {
+    font-size: 30px;
   }
 }

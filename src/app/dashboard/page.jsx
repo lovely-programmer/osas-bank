@@ -59,7 +59,7 @@ export default function Dashboard() {
             </div>
 
             <div className="dashboard__profile">
-              <Link href="/profile">
+              <Link href="/settings">
                 <IoPersonCircle />
                 {/* <span>Account</span> */}
               </Link>

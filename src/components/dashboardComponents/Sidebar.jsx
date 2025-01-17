@@ -27,7 +27,11 @@ export default function Sidebar({ showSideBar, setShowSideBar }) {
     >
       <div className="dashboard__logo">
         <h2>
-          <Link href="/dashboard">WELLS FARGO</Link>
+          <Link href="/dashboard">
+            <span>F</span>
+            <span style={{ color: "#ffcd41" }}>T</span>
+            <span>F</span>
+          </Link>
         </h2>
 
         <div onClick={() => setShowSideBar(false)} className="close__menu">
@@ -45,10 +49,10 @@ export default function Sidebar({ showSideBar, setShowSideBar }) {
             <FaHourglass />
             <Link href="/transactions">Transactions</Link>
           </li>
-          <li className={`${pathname === "/deposit" ? "active" : ""}`}>
+          {/* <li className={`${pathname === "/deposit" ? "active" : ""}`}>
             <GiPayMoney />
             <Link href="/deposit">Deposit</Link>
-          </li>
+          </li> */}
           <li className={`${pathname === "/transfer" ? "active" : ""}`}>
             <img src="/transfer.svg" alt="" />
             <Link href="/transfer">Transfer</Link>

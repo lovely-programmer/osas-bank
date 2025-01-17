@@ -22,7 +22,11 @@ export default function AdminSidebar({ showSideBar, setShowSideBar }) {
     >
       <div className="dashboard__logo">
         <h2>
-          <Link href="/admin/dashboard">WELLS FARGO</Link>
+          <Link href="/admin/dashboard">
+            <span>F</span>
+            <span style={{ color: "#ffcd41" }}>T</span>
+            <span>F</span>
+          </Link>
         </h2>
 
         <div onClick={() => setShowSideBar(false)} className="close__menu">

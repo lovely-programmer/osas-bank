@@ -161,7 +161,8 @@ export default function Login() {
               </div>
             </div>
             <div className="register__footersecond">
-              © 1999 - 2024 Wells Fargo. All rights reserved. NMLSR ID 399801
+              © 1999 - 2025 Firstrustfinance. All rights reserved. NMLSR ID
+              399801
             </div>
           </div>
         </div>

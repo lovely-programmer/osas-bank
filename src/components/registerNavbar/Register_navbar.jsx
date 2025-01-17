@@ -22,7 +22,11 @@ export default function RegisterNavbar() {
       <div className="navbar__container container">
         <div className="navbar__container-second__section">
           <h1 className="register__header">
-            <Link href="/">WELLS FARGO</Link>
+            <Link href="/">
+              <span>FIRS</span>
+              <span style={{ color: "#ffcd41" }}>TRUST</span>
+              <span>FINANCE</span>
+            </Link>
           </h1>
 
           {pathname == "/register/identity/enrollment" ? (

@@ -3,8 +3,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 export const metadata = {
-  title: "Wells Fergo",
-  description: "Bank App",
+  title: "FirstrustFinance",
+  description:
+    "FirstrustFinance is a diversified financial service holding company that offers retail and wholesale banking, and wealth management services to individuals, businesses, high-net-worth individuals, and institutions through its subsidiaries.",
 };
 
 export default function RootLayout({ children }) {
@@ -15,7 +16,6 @@ export default function RootLayout({ children }) {
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
         />
-        {/* <script defer="../../script/script.js"></script> */}
       </head>
 
       <body>

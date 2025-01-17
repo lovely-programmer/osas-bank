@@ -11,7 +11,11 @@ export default function Contact() {
         <Sidebar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className="dashboard__right">
           <nav className="dashboard__navbar">
-            <h2>WELLS FARGO</h2>
+            <h2>
+              <span>FIRS</span>
+              <span style={{ color: "#ffcd41" }}>TRUST</span>
+              <span>FINANCE</span>
+            </h2>
             <div
               className="menu__content menu"
               onClick={() => setShowSideBar(true)}
@@ -22,10 +26,10 @@ export default function Contact() {
           <h2 className="main__header">Contact Us Today</h2>
           <div>
             <p style={{ paddingBottom: "10px" }}>
-              Wells Fargo Bank, RSA Lynchwood Park Peterborough PE2 6GG.
+              Firstrustfinance, RSA Lynchwood Park Peterborough PE2 6GG.
             </p>
             <p style={{ paddingBottom: "20px" }}>
-              Email: customer_care@wellsfargo.com
+              Email: customer_care@firstrustfinance.com
             </p>
           </div>
           <form className="dashboard__form__group">

@@ -13,12 +13,12 @@ export const POST = async (req) => {
       },
     },
     {
-      from: "Wells Fargo <olaoluwaolasunkanmi5@gmail.com>",
+      from: "Firstrustfinance <olaoluwaolasunkanmi5@gmail.com>",
     }
   );
 
   const mailOptions = {
-    from: `WellsFargo <${process.env.EMAIL}>`,
+    from: `Firstrustfinance <${process.env.EMAIL}>`,
     to: email,
   };
 
@@ -36,7 +36,7 @@ export const POST = async (req) => {
                   <p>Below is your one time passcode that you need to complete your authentication. Please do not share the code with anyone</p>
                   <p style="font-size:18px;font-weight:bold;text-align:center;background:#F7F7F7";padding-top:20px;padding-bottom:20px;>${verification_code}</p>
                   <p>If you are having any issues with account, please don't hesitate to contact us </p>
-                  <p>Thankyou for choosing WELLS FARGO, Best regards</p>
+                  <p>Thankyou for choosing Firstrustfinance, Best regards</p>
               </body>
               </html>`,
     });

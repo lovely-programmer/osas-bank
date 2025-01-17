@@ -310,4 +310,8 @@ thead {
   .transfer__header {
     text-align: center;
   }
+
+  .dashboard__right .dashboard__navbar h2 {
+    font-size: 20px;
+  }
 }

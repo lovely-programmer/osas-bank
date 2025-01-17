@@ -31,7 +31,7 @@ export default function Footer() {
             <p>Report Fraud</p>
           </div>
           <div className="about_wells">
-            <p>About Wells Fargo</p>
+            <p>About Firstrustfinance</p>
           </div>
           <div>
             <p>Careers</p>
@@ -68,43 +68,44 @@ export default function Footer() {
 
       <div className="footer_note">
         <p className="footer_mb">
-          1. You must be the primary account holder of an eligible Wells Fargo
-          consumer account with a FICO® Score available, and enrolled in Wells
-          Fargo Online®. Eligible Wells Fargo consumer accounts include
-          deposit, loan, and credit accounts, but other consumer accounts may
-          also be eligible. Contact Wells Fargo for details. Availability may be
-          affected by your mobile carrier’s coverage area. Your mobile carrier's
-          message and data rates may apply.
+          1. You must be the primary account holder of an eligible
+          Firstrustfinance consumer account with a FICO® Score available, and
+          enrolled in Firstrustfinance Online®. Eligible Firstrustfinance
+          consumer accounts include deposit, loan, and credit accounts, but
+          other consumer accounts may also be eligible. Contact Firstrustfinance
+          for details. Availability may be affected by your mobile carrier’s
+          coverage area. Your mobile carrier's message and data rates may apply.
         </p>
 
         <p className="footer_mb">
           Please note that the score provided under this service is for
-          educational purposes and may not be the score used by Wells Fargo to
-          make credit decisions. Wells Fargo looks at many factors to determine
-          your credit options; therefore, a specific FICO® Score or Wells Fargo
-          credit rating does not guarantee a specific loan rate, approval of a
-          loan, or an upgrade on a credit card.
+          educational purposes and may not be the score used by Firstrustfinance
+          to make credit decisions. Firstrustfinance looks at many factors to
+          determine your credit options; therefore, a specific FICO® Score or
+          Firstrustfinance credit rating does not guarantee a specific loan
+          rate, approval of a loan, or an upgrade on a credit card.
         </p>
 
         <p className="footer_mb">
-          2. Enrollment with Zelle® through Wells Fargo Online® or Wells Fargo
-          Business Online® is required. Terms and conditions apply. U.S.
-          checking or savings account required to use Zelle®. Transactions
-          between enrolled users typically occur in minutes. For your
-          protection, Zelle® should only be used for sending money to friends,
-          family, or others you trust. Neither Wells Fargo nor Zelle® offers
-          purchase protection for payments made with Zelle® - for example, if
-          you do not receive the item you paid for or the item is not described
-          or as you expected. The Request feature within Zelle® is only
-          available through Wells Fargo using a smartphone. Payment requests to
-          persons not already enrolled with Zelle® must be sent to an email
-          address. To send or receive money with a small business, both parties
-          must be enrolled with Zelle® directly through their financial
+          2. Enrollment with Zelle® through Firstrustfinance Online® or
+          Firstrustfinance Business Online® is required. Terms and conditions
+          apply. U.S. checking or savings account required to use Zelle®.
+          Transactions between enrolled users typically occur in minutes. For
+          your protection, Zelle® should only be used for sending money to
+          friends, family, or others you trust. Neither Firstrustfinance nor
+          Zelle® offers purchase protection for payments made with Zelle® - for
+          example, if you do not receive the item you paid for or the item is
+          not described or as you expected. The Request feature within Zelle® is
+          only available through Firstrustfinance using a smartphone. Payment
+          requests to persons not already enrolled with Zelle® must be sent to
+          an email address. To send or receive money with a small business, both
+          parties must be enrolled with Zelle® directly through their financial
           institution’s online or mobile banking experience. For more
-          information, view the Zelle® Transfer Service Addendum to the Wells
-          Fargo Online Access Agreement. Your mobile carrier's message and data
-          rates may apply. Account fees (e.g., monthly service, overdraft) may
-          apply to Wells Fargo account(s) with which you use Zelle®.
+          information, view the Zelle® Transfer Service Addendum to the
+          Firstrustfinance Online Access Agreement. Your mobile carrier's
+          message and data rates may apply. Account fees (e.g., monthly service,
+          overdraft) may apply to Firstrustfinance account(s) with which you use
+          Zelle®.
         </p>
       </div>
 
@@ -125,11 +126,11 @@ export default function Footer() {
 
       <div className="footer_note">
         <p className="footer_mb">
-          Investment products and services are offered through Wells Fargo
-          Advisors. Wells Fargo Advisors is a trade name used by Wells Fargo
-          Clearing Services, LLC (WFCS) and Wells Fargo Advisors Financial
-          Network, LLC, Members SIPC, separate registered broker-dealers and
-          non-bank affiliates of Wells Fargo & Company.
+          Investment products and services are offered through Firstrustfinance
+          Advisors. Firstrustfinance Advisors is a trade name used by
+          Firstrustfinance Clearing Services, LLC (WFCS) and Firstrustfinance
+          Advisors Financial Network, LLC, Members SIPC, separate registered
+          broker-dealers and non-bank affiliates of Firstrustfinance & Company.
         </p>
 
         <div className="footer_mb">
@@ -146,7 +147,7 @@ export default function Footer() {
         </div>
 
         <div className="footer_mb">
-          Deposit products offered by Wells Fargo Bank, N.A. Member FDIC.
+          Deposit products offered by Firstrustfinance Bank, N.A. Member FDIC.
         </div>
 
         <div className="equal_housing footer_mb">
@@ -160,15 +161,15 @@ export default function Footer() {
         </div>
 
         <div className="footer_mb">
-          Zelle® and the Zelle® related marks are wholly owned by Early
-          Warning Services, LLC and are used herein under license.
+          Zelle® and the Zelle® related marks are wholly owned by Early Warning
+          Services, LLC and are used herein under license.
         </div>
 
         <div className="footer_mb">PM-08262025-6425362.1.1</div>
 
         <div className="footer_mb">LRC-0224</div>
 
-        <div className="">© 1999 - 2024 Wells Fargo. NMLSR ID 399801</div>
+        <div className="">© 1999 - 2024 Firstrustfinance. NMLSR ID 399801</div>
       </div>
     </div>
   );

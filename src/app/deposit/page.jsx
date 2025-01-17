@@ -20,7 +20,11 @@ export default function Deposit() {
         <Sidebar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
         <div className="dashboard__right">
           <nav className="dashboard__navbar">
-            <h2>WELLS FARGO</h2>
+            <h2>
+              <span>FIRS</span>
+              <span style={{ color: "#ffcd41" }}>TRUST</span>
+              <span>FINANCE</span>
+            </h2>
             <div
               className="menu__content menu"
               onClick={() => setShowSideBar(true)}
@@ -32,14 +36,14 @@ export default function Deposit() {
           <div className="deposit">
             <h3>Deposit</h3>
             <p>
-              Use the details below to send money to your Wells Fargo account
-              from any bank or through internet banking
+              Use the details below to send money to your Firstrustfinance
+              account from any bank or through internet banking
             </p>
 
             <div className="deposit__container">
               <div className="deposit_box">
                 <span>Bank</span>
-                <div className="deposit_column">Wells Fargo Bank</div>
+                <div className="deposit_column">Firstrustfinance Bank</div>
               </div>
               <div className="deposit_box">
                 <span>Account Number</span>

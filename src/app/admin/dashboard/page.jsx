@@ -71,7 +71,11 @@ export default function AdminDashboard() {
         />
         <div className="dashboard__right">
           <nav className="dashboard__navbar">
-            <h2>WELLS FARGO</h2>
+            <h2>
+              <span>F</span>
+              <span style={{ color: "#ffcd41" }}>T</span>
+              <span>F</span>
+            </h2>
             <div
               className="menu__content menu"
               onClick={() => setShowSideBar(true)}

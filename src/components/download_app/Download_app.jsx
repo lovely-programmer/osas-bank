@@ -9,8 +9,8 @@ export default function Download_app() {
       <div className="left">
         <h2>Banking in the palm of your hand</h2>
         <p className="header_text">
-          Our Wells Fargo Mobile® app gives you fast and secure access to your
-          finances
+          Our Firstrustfinance Mobile® app gives you fast and secure access to
+          your finances
         </p>
         <div className="download_list">
           <p>Check your account balance</p>
