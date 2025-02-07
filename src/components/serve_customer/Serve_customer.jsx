@@ -11,7 +11,7 @@ export default function Serve_customer() {
       <div className="serve_customer_boxs">
         <div className="serve_customer_box">
           <div className="head">
-            <img src="./volunteers_cars.avif" alt="" />
+            <img src="./help.avif" alt="" />
           </div>
           <div className="base">
             <h3>Who we are</h3>
