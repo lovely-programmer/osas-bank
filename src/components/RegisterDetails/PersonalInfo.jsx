@@ -13,11 +13,13 @@ function PersonalInfo({ name, occupation, country, updateFields, next }) {
     <form onSubmit={handleSubmit(submit)}>
       {/* <h3 style={{ marginBottom: "15px" }}>Personal Info</h3> */}
       <div>
-        <div className="form__group">
+        <div className="form_group">
+          <label htmlFor="name">Full Name</label>
           <input
             {...register("name")}
             required
             type="text"
+            placeholder="John Doe"
             id="name"
             name="name"
             value={name}
@@ -26,17 +28,20 @@ function PersonalInfo({ name, occupation, country, updateFields, next }) {
               setValue("name", e.target.value);
             }}
           />
-          <label htmlFor="name">Full Name</label>
+          {errors.name && (
+            <div className="form_error">{errors.name.message}</div>
+          )}
         </div>
-        {errors.name && <div className="form_error">{errors.name.message}</div>}
       </div>
 
       <div>
-        <div className="form__group">
+        <div className="form_group">
+          <label htmlFor="occupation">Occupation</label>
           <input
             {...register("occupation")}
             required
             type="text"
+            placeholder="Software Developer"
             id="occupation"
             name="occupation"
             value={occupation}
@@ -45,14 +50,14 @@ function PersonalInfo({ name, occupation, country, updateFields, next }) {
               setValue("occupation", e.target.value);
             }}
           />
-          <label htmlFor="occupation">Occupation</label>
+          {errors.occupation && (
+            <div className="form_error">{errors.occupation.message}</div>
+          )}
         </div>
-        {errors.occupation && (
-          <div className="form_error">{errors.occupation.message}</div>
-        )}
       </div>
 
-      <div className="form__group">
+      <div className="form_group">
+        <div>Country</div>
         <select
           required
           onChange={(e) => updateFields({ country: e.target.value })}

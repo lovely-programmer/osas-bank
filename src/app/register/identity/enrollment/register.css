@@ -12,7 +12,7 @@
 
 .register {
   border-radius: 12px;
-  box-shadow: 0 0 16px 0 rgba(59, 51, 49, .15);
+  box-shadow: 0 0 16px 0 rgba(59, 51, 49, 0.15);
   margin: 64px auto 54px;
   max-width: 870px;
   width: 83%;
@@ -41,7 +41,7 @@
 } */
 
 .register__details {
-  box-shadow: 0 0 16px 0 rgba(59, 51, 49, .15);
+  box-shadow: 0 0 16px 0 rgba(59, 51, 49, 0.15);
   border-radius: 12px;
   padding: 32px 20px;
   background-color: #fff;
@@ -93,7 +93,7 @@
   padding: 32px 24px 24px;
   font-size: 15px;
   line-height: 1rem;
-  background-color: #F4F0ED;
+  background-color: #f4f0ed;
 }
 
 .register__footerfirst {
@@ -117,7 +117,7 @@
 
 @media screen and (max-width: 767px) {
   .register__content {
-    background-image: none;
+    background-image: none !important;
   }
 
   .register__form {

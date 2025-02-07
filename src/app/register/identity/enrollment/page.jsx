@@ -6,7 +6,7 @@ import { useMultistepForm } from "../../../../hooks/useMultistepForm";
 import PersonalInfo from "../../../../components/RegisterDetails/PersonalInfo";
 import Address from "../../../../components/RegisterDetails/Address";
 import Account from "../../../../components/RegisterDetails/Account";
-import VerifyIdentity from "../../../../components/RegisterDetails/VerifyIdentity";
+// import VerifyIdentity from "../../../../components/RegisterDetails/VerifyIdentity";
 
 export default function Enrollment() {
   const [goBack, setGoBack] = useState();

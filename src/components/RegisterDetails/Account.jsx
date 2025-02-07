@@ -5,6 +5,10 @@ import { BiHide, BiShow } from "react-icons/bi";
 import { zodAccountInfoConfig } from "../../hooks/zod";
 import { toast } from "react-toastify";
 import Spinner from "../Spinner/Spinner";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function Account({
   name,
@@ -30,30 +34,10 @@ function Account({
   const [hide, setHide] = useState(true);
   const [hideConfirm, setHideConfirm] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [number, setNumber] = useState();
+  const [dob, setDob] = useState(new Date());
 
   const { register, errors, handleSubmit, setValue } = zodAccountInfoConfig();
-
-  // const {
-  //   username,
-  //   name,
-  //   email,
-  //   address,
-  //   account_type,
-  //   phoneNumber,
-  //   password,
-  //   confirmPassword,
-  //   occupation,
-  //   country,
-  //   city,
-  //   state,
-  //   zip_code,
-  //   social_security,
-  //   confirm_social,
-  //   date_of_birth,
-  //   account_number,
-  //   routing_number,
-  //   verification_code,
-  // } = formData;
 
   const submit = async () => {
     if (password !== confirmPassword) {
@@ -65,15 +49,14 @@ function Account({
         email,
         password,
         address,
-        phoneNumber,
+        phoneNumber: number,
         account_type,
         country,
         state,
         city,
         zip_code,
         occupation,
-        // social_security,
-        date_of_birth,
+        date_of_birth: dob,
         balance: 0,
         account_number,
         routing_number,
@@ -100,7 +83,6 @@ function Account({
 
         router.push("/register/identity/verification");
       } else {
-        // const data = await res.json();
         toast.error("User already exist");
         setLoading(false);
       }
@@ -113,8 +95,8 @@ function Account({
 
   return (
     <form onSubmit={handleSubmit(submit)}>
-      {/* <h3 style={{ marginBottom: "15px" }}>Create Login</h3> */}
-      <div className="form__group">
+      <div className="form_group">
+        <label htmlFor="email">Email</label>
         <input
           {...register("email")}
           value={email}
@@ -126,35 +108,37 @@ function Account({
           id="email"
           name="email"
           type="text"
+          placeholder="johndoe@gmail.com"
         />
-        <label htmlFor="email">Email</label>
+        {errors.email && (
+          <div className="form_error">{errors.email.message}</div>
+        )}
       </div>
-      {errors.email && <div className="form_error">{errors.email.message}</div>}
 
-      <div className="form__group">
-        <input
-          {...register("phoneNumber")}
-          value={phoneNumber}
-          onChange={(e) => {
-            updateFields({ phoneNumber: e.target.value });
-            setValue("phoneNumber", e.target.value);
-          }}
-          required
-          id="phoneNumber"
-          name="phoneNumber"
-          type="text"
-        />
+      <div className="form_group">
         <label htmlFor="phoneNumber">Phone Number</label>
+        <PhoneInput
+          {...register("phoneNumber")}
+          defaultCountry="US"
+          international
+          withCountryCallingCode
+          placeholder="(555) 123-4567"
+          value={number}
+          onChange={setNumber}
+          className="input-phone"
+        />
+        {errors.phoneNumber && (
+          <div className="form_error">{errors.phoneNumber.message}</div>
+        )}
       </div>
-      {errors.phoneNumber && (
-        <div className="form_error">{errors.phoneNumber.message}</div>
-      )}
 
-      <div className="form__group">
+      <div className="form_group">
+        <label htmlFor="username">Username</label>
         <input
           {...register("username")}
           required
           type="text"
+          placeholder="Jane"
           id="username"
           name="username"
           value={username}
@@ -163,26 +147,23 @@ function Account({
             setValue("username", e.target.value);
           }}
         />
-        <label htmlFor="username">Username</label>
+        {errors.username && (
+          <div className="form_error">{errors.username.message}</div>
+        )}
       </div>
-      {errors.username && (
-        <div className="form_error">{errors.username.message}</div>
-      )}
 
-      <div style={{ marginBottom: "10px" }}>Date of birth</div>
-      <div className="form__group">
-        <input
-          required
-          value={date_of_birth}
-          onChange={(e) => updateFields({ date_of_birth: e.target.value })}
-          name="date_of_birth"
-          type="date"
-          id="date_of_birth"
-          max="2005-12-01"
+      <div className="form_group">
+        <div>Date of birth</div>
+        <DatePicker
+          selected={dob}
+          onChange={(date) => setDob(date)}
+          dateFormat={"MM/dd/yyyy"}
+          timeInputLabel="Time:"
+          wrapperClassName="date-picker"
         />
       </div>
 
-      <div style={{ paddingRight: "10px" }} className="form__group">
+      <div className="form_group">
         <select
           onChange={(e) => updateFields({ account_type: e.target.value })}
           value={account_type}
@@ -195,8 +176,9 @@ function Account({
         </select>
       </div>
 
-      <div className="form__group password">
+      <div style={{ position: "relative" }} className="form_group">
         <div className="password__field">
+          <label htmlFor="password">Password</label>
           <input
             {...register("password")}
             required
@@ -209,20 +191,22 @@ function Account({
               setValue("password", e.target.value);
             }}
           />
-          <label htmlFor="password">Password</label>
         </div>
-        {hide ? (
-          <BiHide onClick={() => setHide(false)} />
-        ) : (
-          <BiShow onClick={() => setHide(true)} />
+        <div className="show_hide">
+          {hide ? (
+            <BiHide onClick={() => setHide(false)} />
+          ) : (
+            <BiShow onClick={() => setHide(true)} />
+          )}
+        </div>
+        {errors.password && (
+          <div className="form_error">{errors.password.message}</div>
         )}
       </div>
-      {errors.password && (
-        <div className="form_error">{errors.password.message}</div>
-      )}
 
-      <div className="form__group password">
+      <div style={{ position: "relative" }} className="form_group">
         <div className="password__field">
+          <label htmlFor="confirm_password">Confirm Password</label>
           <input
             {...register("confirmPassword")}
             required
@@ -235,29 +219,18 @@ function Account({
               setValue("confirmPassword", e.target.value);
             }}
           />
-          <label htmlFor="confirm_password">Confirm Password</label>
         </div>
-        {hideConfirm ? (
-          <BiHide onClick={() => setHideConfirm(false)} />
-        ) : (
-          <BiShow onClick={() => setHideConfirm(true)} />
+        <div className="show_hide">
+          {hide ? (
+            <BiHide onClick={() => setHideConfirm(false)} />
+          ) : (
+            <BiShow onClick={() => setHideConfirm(true)} />
+          )}
+        </div>
+        {errors.confirmPassword && (
+          <div className="form_error">{errors.confirmPassword.message}</div>
         )}
       </div>
-      {errors.confirmPassword && (
-        <div className="form_error">{errors.confirmPassword.message}</div>
-      )}
-
-      {/* <div className="create__account-btn">
-        <div className="register__btn">
-          <button onClick={() => back()} type="button" className="prev_button">
-            Previous
-          </button>
-        </div>
-
-        <div className="register__btn">
-          <button type="submit">Next</button>
-        </div>
-      </div> */}
 
       <div className="create__account-btn">
         <div className="register__btn">

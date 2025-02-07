@@ -12,7 +12,8 @@ function Address({ address, city, state, zip_code, updateFields, back, next }) {
     <form onSubmit={handleSubmit(submit)}>
       {/* <h3 style={{ marginBottom: "15px" }}>Residential Address</h3> */}
 
-      <div className="form__group">
+      <div className="form_group">
+        <label htmlFor="address">Street Address</label>
         <input
           {...register("address")}
           value={address}
@@ -21,14 +22,15 @@ function Address({ address, city, state, zip_code, updateFields, back, next }) {
           id="address"
           name="address"
           type="text"
+          placeholder="14th Street, New York"
         />
-        <label htmlFor="address">Street Address</label>
+        {errors.address && (
+          <div className="form_error">{errors.address.message}</div>
+        )}
       </div>
-      {errors.address && (
-        <div className="form_error">{errors.address.message}</div>
-      )}
 
-      <div className="form__group">
+      <div className="form_group">
+        <label htmlFor="city">City</label>
         <input
           {...register("city")}
           value={city}
@@ -40,12 +42,13 @@ function Address({ address, city, state, zip_code, updateFields, back, next }) {
           id="city"
           name="city"
           type="text"
+          placeholder="New York"
         />
-        <label htmlFor="city">City</label>
+        {errors.city && <div className="form_error">{errors.city.message}</div>}
       </div>
-      {errors.city && <div className="form_error">{errors.city.message}</div>}
 
-      <div className="form__group">
+      <div className="form_group">
+        <label htmlFor="state">State</label>
         <input
           {...register("state")}
           value={state}
@@ -57,12 +60,15 @@ function Address({ address, city, state, zip_code, updateFields, back, next }) {
           id="state"
           name="state"
           type="text"
+          placeholder="United States"
         />
-        <label htmlFor="state">State</label>
+        {errors.state && (
+          <div className="form_error">{errors.state.message}</div>
+        )}
       </div>
-      {errors.state && <div className="form_error">{errors.state.message}</div>}
 
-      <div className="form__group">
+      <div className="form_group">
+        <label htmlFor="zip_code">Zip Code</label>
         <input
           {...register("zip_code")}
           value={zip_code}
@@ -74,12 +80,12 @@ function Address({ address, city, state, zip_code, updateFields, back, next }) {
           id="zip_code"
           name="zip_code"
           type="text"
+          placeholder="10001"
         />
-        <label htmlFor="zip_code">Zip Code</label>
+        {errors.zip_code && (
+          <div className="form_error">{errors.zip_code.message}</div>
+        )}
       </div>
-      {errors.zip_code && (
-        <div className="form_error">{errors.zip_code.message}</div>
-      )}
 
       <div className="create__account-btn">
         <div className="register__btn">

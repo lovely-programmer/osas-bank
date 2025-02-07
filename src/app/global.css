@@ -62,6 +62,45 @@ thead {
   color: var(--white-color);
 }
 
+.input-phone {
+  padding-left: 8px;
+  border: 1px solid rgb(219, 219, 219);
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.input-phone input {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-right: none !important;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form_group input {
+  padding: 14px 8px;
+  border: 1px solid rgb(219, 219, 219);
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  outline: none;
+}
+
+.form_group select {
+  border: 1px solid rgb(219, 219, 219);
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 14px 8px;
+  outline: none;
+}
+
 .form__group {
   border: 1px solid rgb(219, 219, 219);
   font-size: 14px;
@@ -97,9 +136,16 @@ thead {
   width: 100%;
 }
 
-.password__field + svg {
+.password__field label {
+  padding-bottom: 8px;
+}
+
+.password__field + .show_hide {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
   padding-right: 10px;
-  font-size: 30px;
+  font-size: 20px;
   padding-bottom: 10px;
   cursor: pointer;
 }
