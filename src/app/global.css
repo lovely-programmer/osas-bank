@@ -89,6 +89,7 @@ thead {
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  width: 100%;
   outline: none;
 }
 
