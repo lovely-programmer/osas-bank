@@ -6,14 +6,17 @@ export const POST = async (req) => {
 
   const transporter = nodemailer.createTransport(
     {
-      service: "gmail",
+      // service: "gmail",
+      host: process.env.HOST,
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_PASS,
       },
     },
     {
-      from: "Firstrustfinance <olaoluwaolasunkanmi5@gmail.com>",
+      from: `Firstrustfinance <${process.env.EMAIL}>`,
     }
   );
 
