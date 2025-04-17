@@ -8,15 +8,15 @@ import { redirect, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { useSWRConfig } from "swr";
 import Spinner from "../../../components/Spinner/Spinner";
-import useSession from "../../../lib/use-session";
+// import useSession from "../../../lib/use-session";
 
 export default function EditUser() {
-  const { session } = useSession();
-  const { user: editUser } = getUser(session?.username);
+  // const { session } = useSession();
+  // const { user: editUser } = getUser(session?.username);
 
-  if (!editUser?.isAdmin) {
-    redirect("/dashboard");
-  }
+  // if (!editUser?.isAdmin) {
+  //   redirect("/dashboard");
+  // }
 
   const searchParams = useSearchParams();
   const userId = searchParams.get("username");

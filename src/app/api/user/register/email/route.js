@@ -4,24 +4,19 @@ import nodemailer from "nodemailer";
 export const POST = async (req) => {
   const { email, name, account_number, password } = await req.json();
 
-  const transporter = nodemailer.createTransport(
-    {
-      // service: "gmail",
-      host: process.env.HOST,
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASS,
-      },
+  const transporter = nodemailer.createTransport({
+    // service: "gmail",
+    host: process.env.HOST,
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PASS,
     },
-    {
-      from: `Firstrustfinance <${process.env.EMAIL}>`,
-    }
-  );
+  });
 
   const mailOptions = {
-    from: `Firstrustfinance <${process.env.EMAIL}>`,
+    from: process.env.EMAIL,
     to: email,
   };
 

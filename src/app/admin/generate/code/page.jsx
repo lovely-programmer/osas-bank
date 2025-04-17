@@ -11,11 +11,11 @@ import { redirect } from "next/navigation";
 
 export default function GenerateCode() {
   const { session } = useSession();
-  const { user } = getUser(session?.username);
+  // const { user } = getUser(session?.username);
 
-  if (!user?.isAdmin) {
-    redirect("/dashboard");
-  }
+  // if (!user?.isAdmin) {
+  //   redirect("/dashboard");
+  // }
 
   const [showSideBar, setShowSideBar] = useState(false);
   const { allUsers, isLoading, mutate } = getAllUsers();

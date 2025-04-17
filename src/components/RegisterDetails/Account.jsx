@@ -9,6 +9,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useRouter } from "next/navigation";
 
 function Account({
   name,
@@ -36,6 +37,8 @@ function Account({
   const [dob, setDob] = useState(new Date());
 
   const { register, errors, handleSubmit, setValue } = zodAccountInfoConfig();
+
+  const router = useRouter();
 
   const submit = async () => {
     if (password !== confirmPassword) {
@@ -218,13 +221,15 @@ function Account({
             }}
           />
         </div>
+
         <div className="show_hide">
-          {hide ? (
+          {hideConfirm ? (
             <BiHide onClick={() => setHideConfirm(false)} />
           ) : (
             <BiShow onClick={() => setHideConfirm(true)} />
           )}
         </div>
+
         {errors.confirmPassword && (
           <div className="form_error">{errors.confirmPassword.message}</div>
         )}
