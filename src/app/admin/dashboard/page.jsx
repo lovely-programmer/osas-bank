@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import AdminSidebar from "../../../components/dashboardComponents/AdminSidebar";
-import { getAllUsers, getUser } from "../../../lib/requests";
 import { MdOutlineMenu } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
@@ -10,11 +9,11 @@ import "../admin.css";
 import { toast } from "react-toastify";
 import Spinner from "../../../components/Spinner/Spinner";
 import useSession from "../../../lib/use-session";
-import { redirect } from "next/navigation";
+import useSWR from "swr";
 
 export default function AdminDashboard() {
   const { session } = useSession();
-  const { user } = getUser(session?.username);
+  // const { user } = getUser(session?.username);
 
   // if (user?.isAdmin !== true) {
   //   redirect("/dashboard");
@@ -28,7 +27,14 @@ export default function AdminDashboard() {
     setNumberOfRestriction(e.target.value);
   };
 
-  const { allUsers, mutate, isLoading } = getAllUsers();
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+  const {
+    data: allUsers,
+    mutate,
+    error,
+    isLoading,
+  } = useSWR("/api/user/allusers", fetcher);
 
   const getId = (id) => {
     setId(id);
@@ -83,6 +89,8 @@ export default function AdminDashboard() {
               <MdOutlineMenu />
             </div>
           </nav>
+
+          {/* <DashboardData /> */}
 
           <h2
             style={{

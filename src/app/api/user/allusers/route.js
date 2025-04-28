@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export const GET = async (req) => {
   try {
     const user = await prisma.user.findMany({
-      orderBy: [{ username: "asc" }],
+      orderBy: [{ id: "desc" }],
     });
 
     return new NextResponse(JSON.stringify(user), { status: 200 });
